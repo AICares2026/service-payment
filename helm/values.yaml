@@ -1,5 +1,5 @@
 service:
-  name: payment
+  name: service-payment
 image:
   repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/payment
 containerPort: 50051

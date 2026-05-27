@@ -1,0 +1,24 @@
+service:
+  name: payment
+image:
+  repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/payment
+containerPort: 50051
+resources:
+  limits:
+    memory: "140Mi"
+  requests:
+    memory: "64Mi"
+    cpu: "50m"
+env:
+  - name: PAYMENT_PORT
+    value: "50051"
+  - name: FLAGD_HOST
+    value: "flagd"
+  - name: FLAGD_PORT
+    value: "8013"
+  - name: OTEL_SERVICE_NAME
+    value: "payment"
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: "http://otel-collector:4317"
+nodeSelector:
+  eks.amazonaws.com/nodegroup: graviton-workers
